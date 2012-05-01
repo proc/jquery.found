@@ -24,9 +24,9 @@
     };
     
     return this.each(function() {
-      if( !$(this).data('jquery.found:initialized')) {
-        var $this = $(this),
-            reset_link = $('<a />', { 'href' : 'javascript:void(0)', 
+      var $this = $(this);
+      if( !$this.data('jquery.found:initialized')) {
+        var reset_link = $('<a />', { 'href' : 'javascript:void(0)', 
             'style':'position:relative; display: none;',
             'title':settings.title }).html('x'),
             wrapper = $('<div />', { 'style' : 'position:absolute;', 'class' : 'found-input-wrapper' });
