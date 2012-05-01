@@ -8,7 +8,7 @@
 
   $.fn.found = function( options ) {  
     var default_options = {
-        placeholder : 'Search',
+        placeholder : 'Search...',
         title : 'Reset'
       }
       , settings = $.extend(default_options, options);
