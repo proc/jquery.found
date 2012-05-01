@@ -7,8 +7,11 @@
 ;(function( $ ){
 
   $.fn.found = function( options ) {  
-    var default_options = {},
-        settings = $.extend(default_options, options);
+    var default_options = {
+        placeholder : 'Search',
+        title : 'Reset'
+      }
+      , settings = $.extend(default_options, options);
     
     function calculate_left(reset_element) {
       var width = reset_element.width(),
@@ -21,39 +24,45 @@
     };
     
     return this.each(function() {
-      var $this = $(this),
-          reset_link = $('<a />', { 'href' : 'javascript:void(0)', 'style':'position:relative; display: none;' }).html('x'),
-          wrapper = $('<div />', { 'style' : 'position:absolute;'});
+      if( !$(this).data('jquery.found:initialized')) {
+        var $this = $(this),
+            reset_link = $('<a />', { 'href' : 'javascript:void(0)', 
+            'style':'position:relative; display: none;',
+            'title':settings.title }).html('x'),
+            wrapper = $('<div />', { 'style' : 'position:absolute;', 'class' : 'found-input-wrapper' });
           
-      function handler(element) {
-        if( element.val() != '' ) {
-          reset_link.show();
-        } else {
-          reset_link.hide();
-        }
-      };
+        function change_handler(element) {
+          if( element.val() != '' ) {
+            reset_link.show();
+          } else {
+            reset_link.hide();
+          }
+        };
       
-      $this.after(wrapper);
-      $this.detach();
-      wrapper.after($this);
-      $this.after(reset_link);
-      $this.css('width', $this.width() - calculate_left(reset_link));
-      $this.css('padding-right', (reset_link.width() * 2) + 'px');
+        $this.wrap(wrapper);
+        $this.after(reset_link);
+        $this.css('width', $this.width() - calculate_left(reset_link));
+        $this.css('padding-right', (reset_link.width() * 2) + 'px');
       
-      reset_link.css('left', calculate_left(reset_link) + 'px');
+        reset_link.css('left', calculate_left(reset_link) + 'px');
       
-      reset_link.bind('click', function() {
-        clear_input($this);
-        $this.trigger('changed');
-      });
+        reset_link.bind('click', function() {
+          clear_input($this);
+          $this.trigger('changed');
+        });
+        
+        $this.attr('placeholder', settings.placeholder);
+        
+        $this.bind('cut paste keyup change', function() {
+          $this.trigger('changed');
+        });
       
-      $this.bind('cut paste keyup change', function() {
-        $this.trigger('changed');
-      });
+        $this.bind('changed', function(event) {
+          change_handler($(event.target));
+        });
       
-      $this.bind('changed', function(event) {
-        handler($(event.target));
-      });
+        $this.data('jquery.found:initialized', true);
+      }
     });
 
   };
