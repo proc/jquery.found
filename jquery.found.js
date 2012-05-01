@@ -27,9 +27,12 @@
       var $this = $(this);
       if( !$this.data('jquery.found:initialized')) {
         var reset_link = $('<a />', { 'href' : 'javascript:void(0)', 
-            'style':'position:relative; display: none;',
-            'title':settings.title }).html('x'),
-            wrapper = $('<div />', { 'style' : 'position:absolute;', 'class' : 'found-input-wrapper' });
+            'style' : 'position:relative; display: none;',
+            'title' : settings.title }).html('x'),
+            wrapper = $('<div />', { 
+              'style' : 'position:absolute;', 
+              'class' : 'found-input-wrapper'
+              });
 
         function change_handler(element) {
           if( element.val() != '' ) {
