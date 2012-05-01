@@ -8,10 +8,10 @@
 
   $.fn.found = function( options ) {  
     var default_options = {
-        placeholder : 'Search...',
-        title : 'Reset'
-      }
-      , settings = $.extend(default_options, options);
+            placeholder : 'Search...'
+          , title : 'Reset'
+        }
+        , settings = $.extend(default_options, options);
 
     function calculate_left(reset_element) {
       var width = reset_element.width(),
