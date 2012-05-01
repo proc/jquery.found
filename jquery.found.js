@@ -61,6 +61,7 @@
           change_handler($(event.target));
         });
       
+        $this.trigger('changed');
         $this.data('jquery.found:initialized', true);
       }
     });
