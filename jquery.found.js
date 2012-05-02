@@ -13,11 +13,6 @@
         }
         , settings = $.extend(default_options, options);
 
-    function calculate_right(reset_element) {
-      var width = reset_element.width(),
-          right  = width;
-      return right - width/2;
-    };
 
     function clear_input($element) {
       $element.val('');
@@ -44,9 +39,9 @@
 
         $this.wrap(wrapper);
         $this.after(reset_link);
-        $this.css('width', $this.width() - calculate_right(reset_link));
-        $this.css('padding-right', ((reset_link.width() * 2) + 5 ) + 'px');
-        reset_link.css('right', calculate_right(reset_link) + 'px');
+        $this.css('width', $this.width());
+        $this.css('padding-right', (reset_link.outerWidth() + 'px'));
+        reset_link.css('right', '1px');
       
         reset_link.bind('click', function() {
           clear_input($this);
