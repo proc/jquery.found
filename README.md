@@ -1,5 +1,8 @@
-# jquery.found
+# jQuery.found
 **jquery.found**, a super simple resettable text field plugin
+
+### Demo
+<http://w.holeso.me/found/example.html>
 ### Usage
 	$('input[type=text]').found({
 		placeholder : 'Search',
