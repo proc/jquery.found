@@ -13,10 +13,10 @@
         }
         , settings = $.extend(default_options, options);
 
-    function calculate_left(reset_element) {
+    function calculate_right(reset_element) {
       var width = reset_element.width(),
-          left  = -(width * 2);
-      return left;
+          right  = width;
+      return right - width/2;
     };
 
     function clear_input($element) {
@@ -27,16 +27,16 @@
       var $this = $(this);
       if( !$this.data('jquery.found:initialized')) {
         var reset_link = $('<a />', { 'href' : 'javascript:void(0)', 
-            'style' : 'position:relative; display: none;',
+            'style' : 'position:absolute; display:none;',
             'title' : settings.title }).html('x'),
             wrapper = $('<div />', { 
-              'style' : 'position:absolute;', 
+              'style' : 'position:relative; display:inline-block;', 
               'class' : 'found-input-wrapper'
               });
 
         function change_handler(element) {
           if( element.val() != '' ) {
-            reset_link.show();
+            reset_link.css('display', 'inline').show();
           } else {
             reset_link.hide();
           }
@@ -44,9 +44,9 @@
 
         $this.wrap(wrapper);
         $this.after(reset_link);
-        $this.css('width', $this.width() - calculate_left(reset_link));
-        $this.css('padding-right', (reset_link.width() * 2) + 'px');
-        reset_link.css('left', calculate_left(reset_link) + 'px');
+        $this.css('width', $this.width() - calculate_right(reset_link));
+        $this.css('padding-right', ((reset_link.width() * 2) + 5 ) + 'px');
+        reset_link.css('right', calculate_right(reset_link) + 'px');
       
         reset_link.bind('click', function() {
           clear_input($this);

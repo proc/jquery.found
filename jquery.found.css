@@ -1,8 +1,14 @@
 .found-input-wrapper input[type=text] {
-  padding: 3px;
+  padding: 5px;
+  color: 404040;
+  font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+  font-size:1em;
 }
 .found-input-wrapper a {
+  font-size: 18px;
+  color: #aaa;
+  padding: 5px;
   font-weight: bold;
   text-decoration: none;
-  font-family: 'Arial, Arial, Helvetica, sans-serif';
+  display: inline;
 }
