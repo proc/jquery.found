@@ -22,6 +22,7 @@
       if( !$this.data('jquery.found:initialized')) {
         var reset_link = $('<a />', { 'href' : 'javascript:void(0)', 
             'style' : 'position:absolute; display:none;',
+            'class' : 'found-reset-link',
             'title' : settings.title }).html('x'),
             wrapper = $('<div />', { 
               'style' : 'position:relative; display:inline-block;', 

@@ -8,11 +8,15 @@
   font-size:1em;
 }
 
-.found-input-wrapper a {
+.found-input-wrapper a.found-reset-link {
   font-size: 18px;
   color: #aaa;
   padding: 4px;
   font-weight: bold;
   text-decoration: none;
   display: inline;
+}
+
+.found-input-wrapper a.found-reset-link:hover {
+  color: #777;
 }
