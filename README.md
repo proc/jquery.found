@@ -3,11 +3,11 @@
 
 ### Demo
 <http://w.holeso.me/found/example.html>
-### Usage
+### Example Usage
 	$('input[type=text]').found({
 		placeholder : 'Search',
 		title       : 'Reset this field'
 	});
 ### Options
-* **placeholder** : placeholder text for the input *( default: 'Search' )*
+* **placeholder** : placeholder text for the input *( default: blank )*
 * **title** : title attribute for the reset link *( default : 'Reset this field' )*

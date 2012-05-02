@@ -5,10 +5,9 @@
  */
 
 ;(function( $ ){
-
-  $.fn.found = function( options ) {  
+  $.fn.found = function( options ) {
     var default_options = {
-            placeholder : 'Search...'
+            placeholder : ''
           , title : 'Reset'
         }
         , settings = $.extend(default_options, options);
@@ -47,8 +46,10 @@
           clear_input($this);
           $this.trigger('changed');
         });
-
-        $this.attr('placeholder', settings.placeholder);
+        
+        if(settings.placeholder !== '') {
+          $this.attr('placeholder', settings.placeholder);
+        }
 
         $this.bind('cut paste keyup change', function() {
           $this.trigger('changed');

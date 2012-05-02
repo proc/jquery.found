@@ -1,13 +1,17 @@
 .found-input-wrapper input[type=text] {
-  padding: 5px;
-  color: 404040;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  padding:4px;
+  color: #555;
   font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
   font-size:1em;
 }
+
 .found-input-wrapper a {
   font-size: 18px;
   color: #aaa;
-  padding: 5px;
+  padding: 4px;
   font-weight: bold;
   text-decoration: none;
   display: inline;
