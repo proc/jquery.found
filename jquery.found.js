@@ -25,7 +25,7 @@
             , 'style' : 'position:absolute; display:none;'
             , 'class' : 'found-reset-link'
             , 'title' : settings.title
-            }).html('x')
+            }).html('&#215;')
           , wrapper = $('<div />', { 
                 'style' : 'position:relative; display:inline-block;' 
               , 'class' : 'found-input-wrapper'
