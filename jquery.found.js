@@ -9,6 +9,7 @@
     var default_options = {
             placeholder : ''
           , title : 'Reset'
+          , html : '&#215;'
         }
         , settings = $.extend( default_options, options );
 
@@ -25,7 +26,7 @@
             , 'style' : 'position:absolute; display:none;'
             , 'class' : 'found-reset-link'
             , 'title' : settings.title
-            }).html('&#215;')
+            }).html(settings.html)
           , wrapper = $('<div />', { 
                 'style' : 'position:relative; display:inline-block;' 
               , 'class' : 'found-input-wrapper'
